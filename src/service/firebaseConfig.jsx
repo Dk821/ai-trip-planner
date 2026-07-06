@@ -8,16 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 
-// Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDEP5gu-T3lehMSVfWCOuB9mhJMFSlqZdU",
-//   authDomain: "ai-travel-visionary.firebaseapp.com",
-//   projectId: "ai-travel-visionary",
-//   storageBucket: "ai-travel-visionary.appspot.com",
-//   messagingSenderId: "762240012090",
-//   appId: "1:762240012090:web:ade9f433b5e7b39e224a03",
-//   measurementId: "G-Y4KCB6YGJT"
-// };
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
