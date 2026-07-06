@@ -20,9 +20,9 @@ function Hero() {
 
     const fetchWeather = async () => {
       try {
-        const res = await fetch("https://ipapi.co/json");
+        const res = await fetch(import.meta.env.VITE_IPAPI_URL);
         const loc = await res.json();
-        const apiKey = "a68f20ed7e2d19a22c199d272e6e1f3b"; // Demo key, replace for production
+        const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
         const weatherRes = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${loc.city}&units=metric&appid=${apiKey}`
         );
