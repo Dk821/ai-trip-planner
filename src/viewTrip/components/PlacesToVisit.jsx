@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import PlaceCardItem from "./PlaceCardItem";
 
-function PlacesToVisit({ trip }) {
+const PlacesToVisit = React.memo(({ trip }) => {
   const navigate = useNavigate();
   const itinerary = trip?.tripData?.trip?.tripPlan?.itinerary;
 
@@ -52,6 +52,6 @@ function PlacesToVisit({ trip }) {
       ))}
     </div>
   );
-}
+});
 
 export default PlacesToVisit;

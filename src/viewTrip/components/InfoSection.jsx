@@ -10,7 +10,7 @@ import {
 } from "react-icons/fi";
 import axios from "axios";
 
-function InfoSection({ trip }) {
+const InfoSection = React.memo(({ trip }) => {
   const [photoUrl, setPhotoUrl] = useState("/Travel.jpg");
   const [copied, setCopied] = useState(false);
   const [timeLeft, setTimeLeft] = useState("");
@@ -145,6 +145,6 @@ function InfoSection({ trip }) {
       </div>
     </div>
   );
-}
+});
 
 export default InfoSection;

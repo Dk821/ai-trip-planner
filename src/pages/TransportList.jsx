@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -19,14 +19,17 @@ function TransportList() {
   const [destinationImages, setDestinationImages] = useState([]);
   const pageSize = 6;
 
-  const airlineOptions =
-    type === "flight"
-      ? [
-          ...new Set(
-            originalData.map((item) => item.airlineName).filter(Boolean)
-          ),
-        ]
-      : [];
+  const airlineOptions = useMemo(
+    () =>
+      type === "flight"
+        ? [
+            ...new Set(
+              originalData.map((item) => item.airlineName).filter(Boolean)
+            ),
+          ]
+        : [],
+    [originalData, type]
+  );
 
   const filterByPrice = (price) => {
     const p = Number(price);
@@ -131,10 +134,17 @@ function TransportList() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const totalPages = Math.ceil(filteredData.length / pageSize);
-  const pageData = filteredData.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize
+  const totalPages = useMemo(
+    () => Math.ceil(filteredData.length / pageSize),
+    [filteredData.length, pageSize]
+  );
+  const pageData = useMemo(
+    () =>
+      filteredData.slice(
+        (currentPage - 1) * pageSize,
+        currentPage * pageSize
+      ),
+    [filteredData, currentPage, pageSize]
   );
 
   return (

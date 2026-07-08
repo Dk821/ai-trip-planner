@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaPlane, FaTrain, FaBus } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 
-function TransportOptions({ trip }) {
+const TransportOptions = React.memo(({ trip }) => {
   const navigate = useNavigate();
   const transport = trip?.tripData?.trip?.tripPlan?.transportOptions;
 
@@ -62,7 +62,6 @@ function TransportOptions({ trip }) {
             ? `$${Math.round(option.data.reduce((acc, val) => acc + (val.price || 0), 0) / option.data.length)} avg`
             : "Price varies";
           const count = option.data?.length || 0;
-          console.log(avgPrice)
           return (
             <button
               key={option.type}
@@ -103,6 +102,6 @@ function TransportOptions({ trip }) {
       </div>
     </div>
   );
-}
+});
 
 export default TransportOptions;

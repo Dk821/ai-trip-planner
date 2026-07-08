@@ -1,21 +1,22 @@
-import { StrictMode } from "react";
+import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CreateTrip from "./create-trip/index.jsx";
 import { Toaster } from "sonner";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import ViewTrip from "./viewTrip/[tripId]/index.jsx";
-import Profile from "./viewTrip/components/Profile.jsx";
-import EditTrip from "./viewTrip/components/EditTrip.jsx";
-import TransportDetails from "./pages/TransportDetails.jsx";
-import Layout from "./Layout.jsx"; // 👈 import your new layout
-import TransportList from "./pages/TransportList.jsx";
-import PlaceDetail from "./pages/PlaceDetail.jsx";
-import HotelDetail from "./pages/HotelDetail.jsx";
-import StartTripMap from "./pages/StartTripMap.jsx"; // adjust path as needed
-import AdminPage from "./viewTrip/components/AdminPage.jsx"; // ✅ Admin page
+import Layout from "./Layout.jsx";
+
+const CreateTrip = lazy(() => import("./create-trip/index.jsx"));
+const ViewTrip = lazy(() => import("./viewTrip/[tripId]/index.jsx"));
+const Profile = lazy(() => import("./viewTrip/components/Profile.jsx"));
+const EditTrip = lazy(() => import("./viewTrip/components/EditTrip.jsx"));
+const TransportDetails = lazy(() => import("./pages/TransportDetails.jsx"));
+const TransportList = lazy(() => import("./pages/TransportList.jsx"));
+const PlaceDetail = lazy(() => import("./pages/PlaceDetail.jsx"));
+const HotelDetail = lazy(() => import("./pages/HotelDetail.jsx"));
+const StartTripMap = lazy(() => import("./pages/StartTripMap.jsx"));
+const AdminPage = lazy(() => import("./viewTrip/components/AdminPage.jsx"));
 
 const router = createBrowserRouter([
   {

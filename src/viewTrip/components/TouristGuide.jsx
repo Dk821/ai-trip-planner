@@ -1,7 +1,6 @@
 import React from "react";
 
-const LocalTouristGuides = ({ guides }) => {
-  console.log(guides);
+const LocalTouristGuides = React.memo(({ guides }) => {
   if (!guides || guides.length === 0) {
     return <p>No local tourist guides available.</p>;
   }
@@ -57,6 +56,6 @@ const LocalTouristGuides = ({ guides }) => {
       </div>
     </section>
   );
-};
+});
 
 export default LocalTouristGuides;

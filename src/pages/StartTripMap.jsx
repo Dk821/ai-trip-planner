@@ -384,7 +384,7 @@ function StartTripMap() {
           onClick={() => {
             if (currentLocation) {
               speakText("Recentering to your current location.");
-              window.location.reload();
+              mapRef.current?.flyTo(currentLocation, 17);
             }
           }}
         >

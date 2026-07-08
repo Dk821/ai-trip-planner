@@ -30,7 +30,6 @@ function ViewTrip() {
 
         if (docSnap.exists()) {
           setTrip(docSnap.data());
-          console.log(trip);
         } else {
           toast.error("No trip found!");
           setError("No trip found");
@@ -51,7 +50,6 @@ function ViewTrip() {
   }, [tripId]);
 
   if (loading) {
-    console.log(trip);
     return (
       <div className="p-10 text-center text-lg font-semibold text-gray-600">
         Loading trip details...

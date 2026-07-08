@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function PlaceCardItem({ place }) {
+const PlaceCardItem = React.memo(({ place }) => {
   const [imageUrl, setImageUrl] = useState("");
   const navigate = useNavigate();
 
@@ -71,6 +71,6 @@ function PlaceCardItem({ place }) {
       </div>
     </div>
   );
-}
+});
 
 export default PlaceCardItem;

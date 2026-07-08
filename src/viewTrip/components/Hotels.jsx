@@ -14,7 +14,33 @@ import {
   FaUtensils,
 } from "react-icons/fa";
 
-function Hotels({ trip }) {
+const swiperStyles = `
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    color: #1e40af;
+    z-index: 20;
+    top: 45%;
+    transform: translateY(-50%);
+  }
+  .swiper-button-prev { left: -20px; }
+  .swiper-button-next { right: -20px; }
+  @media (max-width: 768px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 30px;
+      height: 30px;
+    }
+    .swiper-button-prev { left: -10px; }
+    .swiper-button-next { right: -10px; }
+  }
+`;
+
+const Hotels = React.memo(({ trip }) => {
   const hotelOptions = trip?.tripData?.trip?.tripPlan?.hotelOptions || [];
   const destination = trip?.UserSelection?.destination || "";
   const [destinationImages, setDestinationImages] = useState([]);
@@ -155,36 +181,10 @@ function Hotels({ trip }) {
           })}
         </Swiper>
 
-        <style>{`
-          .swiper-button-prev,
-          .swiper-button-next {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            color: #1e40af;
-            z-index: 20;
-            top: 45%;
-            transform: translateY(-50%);
-          }
-
-          .swiper-button-prev { left: -20px; }
-          .swiper-button-next { right: -20px; }
-
-          @media (max-width: 768px) {
-            .swiper-button-prev,
-            .swiper-button-next {
-              width: 30px;
-              height: 30px;
-            }
-            .swiper-button-prev { left: -10px; }
-            .swiper-button-next { right: -10px; }
-          }
-        `}</style>
+        <style>{swiperStyles}</style>
       </div>
     </div>
   );
-}
+});
 
 export default Hotels;
