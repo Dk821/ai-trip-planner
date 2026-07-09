@@ -119,6 +119,15 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #f56551;
+  color: white;
+}
+
 
 .profile-container {
   max-width: 900px;
