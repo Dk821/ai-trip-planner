@@ -2,21 +2,7 @@
 
 An intelligent travel planning application that generates personalized trip itineraries using AI. Users input their origin, destination, budget, and preferences — and the app builds a complete day-by-day plan including hotels, places to visit, transport options, and real-time map routing.
 
----
 
-## Table of Contents
-
-- [How It Works](#-how-it-works)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Architecture & Data Flow](#-architecture--data-flow)
-- [Project Structure](#-project-structure)
-- [Pages & Routes](#-pages--routes)
-- [Key Components](#-key-components)
-- [Environment Variables](#-environment-variables)
-- [Getting Started](#-getting-started)
-
----
 
 ## 🧠 How It Works
 
