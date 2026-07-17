@@ -276,76 +276,110 @@ function CreateTrip() {
       </section>
 
       {/* Offers Section */}
-      {/* Offers Section */}
       <section className="my-16 px-5 md:px-20">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          🔥 Special Offers & Deals
+        <h2 className="text-3xl font-bold mb-2 text-center">
+          Special Offers & Deals
         </h2>
+        <p className="text-gray-500 text-center mb-8">
+          Hand-picked packages for your next adventure
+        </p>
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               title: "Bali Escape",
               price: "From $499",
               desc: "5 nights stay with free spa and beach dinner",
+              gradient: "from-pink-500 to-rose-500",
             },
             {
               title: "Swiss Alps Adventure",
               price: "From $899",
               desc: "7-day hiking tour including cable car pass",
+              gradient: "from-blue-500 to-cyan-500",
             },
             {
               title: "Dubai Luxury Trip",
               price: "From $699",
               desc: "Luxury hotel + Desert Safari + Yacht Ride",
+              gradient: "from-amber-500 to-orange-500",
             },
           ].map((offer, idx) => (
             <div
               key={idx}
-              className="rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition"
+              className="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
-              <img
-                src={offerImages[idx] || "https://via.placeholder.com/300"}
-                alt={offer.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-5 bg-white">
-                <h3 className="text-xl font-semibold">{offer.title}</h3>
-                <p className="text-sm text-gray-500 mt-1">{offer.desc}</p>
-                <div className="text-blue-600 font-bold mt-2">
-                  {offer.price}
+              <div className="relative overflow-hidden h-52">
+                <img
+                  src={offerImages[idx] || "https://via.placeholder.com/300"}
+                  alt={offer.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold text-white bg-white/20 backdrop-blur-md rounded-full">
+                    Limited Offer
+                  </span>
                 </div>
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-3 py-1 text-sm font-bold text-white bg-gradient-to-r rounded-lg shadow-lg">
+                    {offer.price}
+                  </span>
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-gray-900">{offer.title}</h3>
+                <p className="text-sm text-gray-500 mt-1.5 leading-relaxed">{offer.desc}</p>
+                <button className="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-1 group/btn">
+                  View Deal
+                  <span className="transform transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
+                </button>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Recent Activities */}
+      {/* Recent Adventures */}
       <section className="my-16 px-5 md:px-20">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          🕒 Recent Adventures by Our Users
+        <h2 className="text-3xl font-bold mb-2 text-center">
+          Recent Adventures
         </h2>
+        <p className="text-gray-500 text-center mb-8">
+          What our community has been exploring
+        </p>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { from: "New York", to: "Paris", type: "Romantic Getaway" },
-            { from: "Mumbai", to: "Leh", type: "Adventure Trip" },
-            { from: "Tokyo", to: "Kyoto", type: "Cultural Retreat" },
+            { from: "New York", to: "Paris", type: "Romantic Getaway", emoji: "💕" },
+            { from: "Mumbai", to: "Leh", type: "Adventure Trip", emoji: "⛰️" },
+            { from: "Tokyo", to: "Kyoto", type: "Cultural Retreat", emoji: "🏯" },
           ].map((trip, idx) => (
             <div
               key={idx}
-              className="rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition"
+              className="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
-              <img
-                src={adventureImages[idx] || "https://via.placeholder.com/300"}
-                alt={`Trip to ${trip.to}`}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-5 bg-white">
-                <h3 className="text-xl font-semibold">
-                  From {trip.from} to {trip.to}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Trip Type: {trip.type}
+              <div className="relative overflow-hidden h-52">
+                <img
+                  src={adventureImages[idx] || "https://via.placeholder.com/300"}
+                  alt={`Trip to ${trip.to}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                  <span className="text-2xl">{trip.emoji}</span>
+                  <span className="text-xs font-medium text-white bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full">
+                    {trip.type}
+                  </span>
+                </div>
+              </div>
+              <div className="p-5">
+                <div className="flex items-center gap-2 text-sm text-gray-400 mb-1">
+                  <span>{trip.from}</span>
+                  <span className="text-blue-500">→</span>
+                  <span className="font-medium text-gray-700">{trip.to}</span>
+                </div>
+                <p className="text-xs text-gray-400 mt-2 flex items-center gap-1">
+                  <span className="inline-block w-2 h-2 rounded-full bg-green-400" />
+                  Recently planned
                 </p>
               </div>
             </div>
@@ -354,36 +388,62 @@ function CreateTrip() {
       </section>
 
       {/* Blog Inspiration */}
-      {/* Blog Inspiration */}
-      <section className="py-14 px-5 md:px-20 bg-white">
-        <h2 className="text-3xl font-bold mb-6 text-center">📸 Get Inspired</h2>
+      <section className="py-14 px-5 md:px-20 bg-gray-50">
+        <h2 className="text-3xl font-bold mb-2 text-center">
+          Get Inspired
+        </h2>
+        <p className="text-gray-500 text-center mb-8">
+          Travel tips and ideas from our experts
+        </p>
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               title: "Top 5 Budget-Friendly Destinations",
               summary: "Explore amazing spots without breaking the bank.",
+              tag: "Budget",
+              tagColor: "bg-green-100 text-green-700",
             },
             {
               title: "Romantic Escapes for Couples",
               summary: "Plan the perfect getaway for you and your partner.",
+              tag: "Romance",
+              tagColor: "bg-pink-100 text-pink-700",
             },
             {
               title: "Backpacker's Guide to Europe",
               summary: "All you need to explore Europe on a budget.",
+              tag: "Guide",
+              tagColor: "bg-blue-100 text-blue-700",
             },
           ].map((item, index) => (
             <div
               key={index}
-              className="overflow-hidden rounded-xl shadow-lg hover:scale-[1.03] transition"
+              className="group overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
-              <img
-                src={blogImages[index] || "https://via.placeholder.com/300"}
-                alt={item.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative overflow-hidden h-48">
+                <img
+                  src={blogImages[index] || "https://via.placeholder.com/300"}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute top-3 left-3">
+                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${item.tagColor}`}>
+                    {item.tag}
+                  </span>
+                </div>
+              </div>
               <div className="p-5">
-                <h4 className="text-lg font-semibold">{item.title}</h4>
-                <p className="text-sm text-gray-600 mt-2">{item.summary}</p>
+                <h4 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-gray-500 mt-2 leading-relaxed">{item.summary}</p>
+                <div className="mt-4 flex items-center text-sm font-medium text-blue-600 group-hover:gap-2 transition-all">
+                  Read More
+                  <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </div>
           ))}
@@ -462,10 +522,10 @@ function CreateTrip() {
                 <div
                   key={index}
                   onClick={() => handleInputChange("budget", item.title)}
-                  className={`p-4 rounded-lg border cursor-pointer select-none transition ${
+                  className={`relative p-4 rounded-xl border-2 cursor-pointer select-none transition-all duration-300 ${
                     formData?.budget === item.title
-                      ? "border-gray-900 bg-gray-50"
-                      : "border-gray-200 hover:border-gray-400"
+                      ? "border-blue-500 bg-blue-50 shadow-md shadow-blue-100 scale-[1.02]"
+                      : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5"
                   }`}
                   role="button"
                   tabIndex={0}
@@ -474,9 +534,16 @@ function CreateTrip() {
                       handleInputChange("budget", item.title);
                   }}
                 >
-                  <div className="text-2xl mb-2">{item.icon}</div>
-                  <h3 className="font-medium text-sm">{item.title}</h3>
-                  <p className="text-xs text-gray-400 mt-0.5">{item.desc}</p>
+                  {formData?.budget === item.title && (
+                    <div className="absolute -top-2 -right-2 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  )}
+                  <div className="text-2xl mb-2 text-center">{item.icon}</div>
+                  <h3 className="font-bold text-sm text-center">{item.title}</h3>
+                  <p className="text-xs text-gray-400 mt-1 text-center">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -487,15 +554,15 @@ function CreateTrip() {
             <label className="block text-sm font-medium text-gray-700 mb-3">
               Travel Group
             </label>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-4 gap-3">
               {SelectTravelesList.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => handleInputChange("traveler", item.people)}
-                  className={`p-4 rounded-lg border cursor-pointer select-none transition ${
+                  className={`relative p-3 rounded-xl border-2 cursor-pointer select-none transition-all duration-300 ${
                     formData?.traveler === item.people
-                      ? "border-gray-900 bg-gray-50"
-                      : "border-gray-200 hover:border-gray-400"
+                      ? "border-blue-500 bg-blue-50 shadow-md shadow-blue-100 scale-[1.02]"
+                      : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5"
                   }`}
                   role="button"
                   tabIndex={0}
@@ -504,9 +571,16 @@ function CreateTrip() {
                       handleInputChange("traveler", item.people);
                   }}
                 >
-                  <div className="text-2xl mb-2">{item.icon}</div>
-                  <h3 className="font-medium text-sm">{item.title}</h3>
-                  <p className="text-xs text-gray-400 mt-0.5">{item.desc}</p>
+                  {formData?.traveler === item.people && (
+                    <div className="absolute -top-2 -right-2 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  )}
+                  <div className="text-2xl mb-1 text-center">{item.icon}</div>
+                  <h3 className="font-bold text-xs text-center">{item.title}</h3>
+                  <p className="text-[10px] text-gray-400 mt-0.5 text-center leading-tight">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -517,15 +591,20 @@ function CreateTrip() {
             <Button
               disabled={loading}
               onClick={OnGenerateTrip}
-              className="w-full bg-gray-900 hover:bg-gray-800 text-white rounded-lg py-2.5 transition"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl py-3 shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 transition-all duration-300 hover:-translate-y-0.5"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
-                  <AiOutlineLoading3Quarters className="h-4 w-4 animate-spin" />
-                  Generating...
+                  <AiOutlineLoading3Quarters className="h-5 w-5 animate-spin" />
+                  Crafting Your Trip...
                 </span>
               ) : (
-                "Generate My Trip"
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  Generate My Trip
+                </span>
               )}
             </Button>
           </div>
