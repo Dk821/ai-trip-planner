@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import CustomAddressAutocomplete from "../viewTrip/components/CustomAddressAutocomplete";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -251,27 +252,157 @@ function CreateTrip() {
   return (
     <>
       {/* Banner */}
-      <section
-        className="w-full h-[70vh] md:h-[80vh] bg-cover bg-center relative flex items-center justify-center text-white"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80')",
-        }}
-      >
-        <div className="absolute inset-0 backdrop-blur-sm" />
-        <div className="relative z-10 text-center px-5">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
-            Discover Your Dream Destination
-          </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-6 drop-shadow-md">
-            Plan your personalized AI-powered trip in seconds. Hassle-free, fun,
-            and unforgettable!
-          </p>
-          <a href="#tripForm">
-            <button className="bg-gradient-to-r from-yellow-400 to-pink-500 text-black font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300">
-              Plan Your Trip Now
-            </button>
-          </a>
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+        {/* Background image with overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-gray-900/60" />
+
+        {/* Animated orbs */}
+        <motion.div
+          className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[120px]"
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 45, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[120px]"
+          animate={{ scale: [1.2, 1, 1.2], rotate: [0, -30, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* LEFT: Text content */}
+            <div className="text-left space-y-7">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-1.5 rounded-full"
+              >
+                <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span className="text-sm font-medium text-white/90">
+                  AI-Powered Trip Planner
+                </span>
+              </motion.div>
+
+              <motion.h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+              >
+                Craft Your Perfect{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400">
+                  Getaway
+                </span>
+              </motion.h1>
+
+              <motion.p
+                className="text-lg sm:text-xl text-gray-300 max-w-xl leading-relaxed"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              >
+                Tell us where you want to go, and our AI will build a personalized
+                itinerary with hotels, activities, and transport — in seconds.
+              </motion.p>
+
+              <motion.div
+                className="flex flex-wrap gap-4 pt-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+              >
+                <a href="#tripForm">
+                  <motion.button
+                    className="px-8 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold text-base shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 transition-shadow flex items-center gap-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Plan Your Trip Now
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </motion.button>
+                </a>
+              </motion.div>
+
+              <motion.div
+                className="flex flex-wrap gap-8 pt-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+              >
+                {[
+                  { value: "10K+", label: "Trips Planned" },
+                  { value: "50+", label: "Countries" },
+                  { value: "4.9★", label: "User Rating" },
+                ].map((s, i) => (
+                  <div key={i}>
+                    <div className="text-2xl font-bold text-white">{s.value}</div>
+                    <div className="text-sm text-gray-400">{s.label}</div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* RIGHT: Visual showcase */}
+            <motion.div
+              className="hidden lg:block"
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <div className="relative">
+                <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {[
+                      { name: "Bali", price: "$499", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=300&fit=crop" },
+                      { name: "Paris", price: "$599", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop" },
+                      { name: "Tokyo", price: "$699", image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=300&fit=crop" },
+                      { name: "New York", price: "$449", image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&h=300&fit=crop" },
+                    ].map((d, i) => (
+                      <div
+                        key={i}
+                        className="relative group rounded-xl overflow-hidden aspect-[4/3]"
+                      >
+                        <img
+                          src={d.image}
+                          alt={d.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute bottom-2 left-3 text-white">
+                          <div className="font-semibold text-sm">{d.name}</div>
+                          <div className="text-xs text-orange-300">from {d.price}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between text-white/80 text-sm">
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      200+ destinations
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                      </svg>
+                      10K travelers
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
