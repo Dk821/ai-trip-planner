@@ -251,6 +251,4 @@ npm run build
 npm run preview
 ```
 
-The app runs at `http://localhost:5173`.
 
-> **Note:** You need valid API keys in `.env` for full functionality. The app will still load without them, but AI generation, maps, and images will not work.
