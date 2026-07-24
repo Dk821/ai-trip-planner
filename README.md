@@ -37,27 +37,7 @@ An intelligent travel planning application that generates personalized trip itin
 
 ---
 
-## 🛠 Tech Stack
 
-| Category | Technology | Purpose |
-|----------|-----------|---------|
-| **Framework** | React 18 + Vite 6 | SPA build tooling and development |
-| **Routing** | React Router 7 | Client-side page routing |
-| **Styling** | Tailwind CSS 4 + shadcn/ui | Utility-first CSS and component library |
-| **Animation** | Framer Motion 12 | Scroll and mount animations |
-| **AI Engine** | Google Gemini 2.5 Flash | Generates trip itineraries from prompts |
-| **Database** | Firebase Firestore | Stores trips, users, offers, and bookings |
-| **Auth** | Firebase Auth + Google OAuth | User authentication |
-| **Maps** | Leaflet + React-Leaflet | Interactive maps and routing |
-| **Places API** | Google Places API | Address autocomplete and place data |
-| **Images** | Unsplash, Pexels, Pixabay APIs | Hotel, place, and destination photos |
-| **Weather** | OpenWeather API + ipapi.co | Real-time weather on landing page |
-| **Chat** | Google Gemini | AI travel assistant with voice I/O |
-| **Notifications** | Twilio (optional) | Call-based notifications |
-| **Charts** | Recharts + ApexCharts | Data visualization in admin panel |
-| **Icons** | React Icons + Lucide | UI icon set |
-
----
 
 ## 🏗 Architecture & Data Flow
 
