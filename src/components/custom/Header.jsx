@@ -256,7 +256,7 @@ function Header() {
                   )}
                 </>
               ) : (
-                <Button onClick={handleGoogleLogin} variant="default" size="sm">
+                <Button onClick={handleGoogleLogin} variant="brand" size="sm">
                   Sign in with Google
                 </Button>
               )}

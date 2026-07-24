@@ -171,7 +171,7 @@ function Hero() {
                 className="flex flex-wrap gap-4"
               >
                 <Link to="/create-trip">
-                  <Button className="text-base px-8 py-6 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 transition-all flex items-center gap-2">
+                  <Button variant="brand" size="lg" className="flex items-center gap-2">
                     Start Planning Free
                     <FaArrowRight />
                   </Button>
